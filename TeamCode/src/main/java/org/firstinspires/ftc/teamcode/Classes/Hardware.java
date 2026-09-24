@@ -3,10 +3,13 @@ package org.firstinspires.ftc.teamcode.Classes;
 import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
 import static com.qualcomm.robotcore.hardware.DcMotorSimple.Direction.REVERSE;
 
+import com.qualcomm.hardware.rev.RevColorSensorV3;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
+import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -18,9 +21,13 @@ public class Hardware {
     public DcMotor frontLeft;
     public DcMotor backRight;
     public DcMotor backLeft;
+    public NormalizedColorSensor colorSensor;
     public IMU imu;
 
     public void declareHardware(HardwareMap hwMap) {
+        // Temp color Test
+        colorSensor = hwMap.get(NormalizedColorSensor.class, "colorSensor");
+
         frontRight = hwMap.get(DcMotor.class, "frontRight");
         frontLeft = hwMap.get(DcMotor.class, "frontLeft");
         backRight = hwMap.get(DcMotor.class, "backRight");
